@@ -33,8 +33,5 @@ app.use(bodyParser.json());
     });
   });
 
-
-
-
 //Exportar modulo
 module.exports = app;
