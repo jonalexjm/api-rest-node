@@ -10,28 +10,16 @@ const app = express();
 
 //cargar archivos de rutas
 
+var user_routes = require('./routes/user');
+
 //Middlewares
-app.use(bodyParser.urlencoded({bodyParser:false}));
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //CORS
 
 //Reescribir rutas
 
-/* app.get('/prueba ', (req, res) =>  {
-    return res.status(200).send({
-        nombre : 'john alexander jimenez',
-        message : 'hola mundo desde backend con Node'
-    });
-  }); */
-
-  app.get('/prueba',(req, res) => {
-
-    res.status(200).send({
-        nombre : 'john alexander jimenez',
-        message : 'hola mundo desde backend con Node'
-    });
-  });
-
+app.use('/api', user_routes);
 //Exportar modulo
 module.exports = app;
